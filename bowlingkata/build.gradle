@@ -1,0 +1,23 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+kotlin {
+    jvmToolchain(21)
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    testImplementation(platform("org.junit:junit-bom:${junitBomVersion}"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+
+tasks {
+    test {
+        useJUnitPlatform()
+    }
+}
+
